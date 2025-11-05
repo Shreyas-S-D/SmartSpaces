@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpaces - AI Floor Plan Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 SmartSpaces</h1>
+            <p>AI-Powered Architectural Planning & Floor Plan Optimization</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Design Your Space</h2>
+                
+                <form id="inputForm">
+                    <!-- Room Requirements -->
+                    <div class="form-group">
+                        <label for="bedrooms">Number of Bedrooms:</label>
+                        <input type="number" id="bedrooms" name="bedrooms" min="1" max="10" value="2" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bathrooms">Number of Bathrooms:</label>
+                        <input type="number" id="bathrooms" name="bathrooms" min="1" max="5" value="1" required>
+                    </div>
+
+                    <!-- Input Type Selection -->
+                    <div class="form-group">
+                        <label>Input Method:</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="dimensionsRadio" name="inputType" value="dimensions" checked>
+                                <label for="dimensionsRadio">Site Dimensions</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="photoRadio" name="inputType" value="photo">
+                                <label for="photoRadio">Floor Plan Photo</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dimensions Input -->
+                    <div id="dimensionsSection" class="form-group">
+                        <div class="form-group">
+                            <label for="length">Length (feet):</label>
+                            <input type="number" id="length" name="length" min="5" max="100" value="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="width">Width (feet):</label>
+                            <input type="number" id="width" name="width" min="5" max="100" value="15">
+                        </div>
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div id="uploadSection" class="form-group" style="display: none;">
+                        <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                        <div class="upload-area">
+                            <div style="text-align: center;">
+                                <i>📸</i>
+                                <p>Click to upload floor plan image</p>
+                                <p style="font-size: 0.8rem; color: #718096;">Supports JPG, PNG - Max 5MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="generateBtn" class="generate-btn">
+                        🚀 Generate Floor Plans
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2>Generated Floor Plans</h2>
+                <div id="resultsSection">
+                    <div style="text-align: center; padding: 40px; color: #718096;">
+                        <p>Your AI-generated floor plans will appear here</p>
+                        <p>⬅️ Configure your requirements and click "Generate"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>SmartSpaces AI • Architectural Planning Made Simple</p>
+            <p>Powered by Computer Vision & Machine Learning</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
